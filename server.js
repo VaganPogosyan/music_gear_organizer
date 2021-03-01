@@ -27,7 +27,7 @@ APP.get('/gear/seed', (req, res) => {
     gearItem.create([
         {
             name: 'Fender CD-60',
-            type: 'Elctro-Acoustic cuitar',
+            type: 'Electro-Acoustic guitar',
             color: 'NAT',
             needsReplacement: false,
             image: 'https://thumbs.static-thomann.de/thumb/orig/pics/prod/190655.jpg'
@@ -44,6 +44,16 @@ APP.get('/gear', (req, res) => {
             gear: allGear
         });
     });
+});
+
+// show
+APP.get('/gear/:id', (req, res) => {
+    gearItem.findById(req.params.id, (error, foundGear) => {
+        res.render('show.ejs', {
+            gear: foundGear
+        });
+    });
+
 });
 
 
