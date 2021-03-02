@@ -14,7 +14,7 @@ APP.use(express.urlencoded({ extended: true }));
 APP.use(methodOverride('_method'));
 
 // mongoose conection
-mongoose.connect(`mongodb://localhost:27017/gear`, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/gear', { useNewUrlParser: true });
 mongoose.connection.once('open', () => {
     console.log('connected to mongo');
 });
@@ -32,17 +32,22 @@ APP.get('/gear/seed', (req, res) => {
             needsReplacement: false,
             image: 'https://thumbs.static-thomann.de/thumb/orig/pics/prod/190655.jpg'
         }
-    ]);
-    res.redirect('/gear');
+    ], (error, data) => {
+        res.redirect('/gear');
+    });
+
 });
 
 
-// index
-APP.get('/gear', (req, res) => {
-    gearItem.find({}, (error, allGear) => {
-        res.render('index.ejs', {
-            gear: allGear
-        });
+// new
+APP.get('/gear/new', (req, res) => {
+    res.render('new.ejs');
+});
+
+// post/create
+APP.post('/gear', (req, res) => {
+    gearItem.create(req.body, (error, createdGear) => {
+        res.redirect('/gear');
     });
 });
 
@@ -53,12 +58,16 @@ APP.get('/gear/:id', (req, res) => {
             gear: foundGear
         });
     });
-
 });
 
-
-
-
+// index
+APP.get('/gear', (req, res) => {
+    gearItem.find({}, (error, allGear) => {
+        res.render('index.ejs', {
+            gear: allGear
+        });
+    });
+});
 
 
 

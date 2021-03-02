@@ -11,7 +11,7 @@
 <body>
     <h1>Music Gear Organizer</h1>
     <% for (let i=0; i < gear.length; i++) { %>
-        <a href="#">
+        <a href="/gear/<%= gear[i].id %>">
             <%= gear[i].name %>
         </a><br>
         <%= gear[i].type %> <br>
@@ -21,6 +21,7 @@
                 </a><br>
                 <br>
                 <% } %>
+                    <a href="/gear/new">Add Item</a>
 </body>
 
 </html>
