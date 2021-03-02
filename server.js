@@ -12,6 +12,7 @@ const gearItem = require('./models/gear.js');
 // middleware to help with the form submission
 APP.use(express.urlencoded({ extended: true }));
 APP.use(methodOverride('_method'));
+APP.use(express.static('public'));
 
 // mongoose conection
 mongoose.connect('mongodb://localhost:27017/gear', { useNewUrlParser: true, useUnifiedTopology: true });

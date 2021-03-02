@@ -6,25 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <h1>Music Gear Organizer</h1>
-    <% for (let i=0; i < gear.length; i++) { %>
-        <a href="/gear/<%= gear[i].id %>">
-            <%= gear[i].name %>
-        </a><br>
-        <%= gear[i].type %> <br>
-            <%= gear[i].color %> <br>
+    <div class="container-guitars">
+        <h2>Guitars</h2>
+
+        <% for (let i=0; i < gear.length; i++) { %>
+            <div class="item-box">
                 <a href="/gear/<%= gear[i].id %>">
-                    <img src="<%= gear[i].image %>" alt="<%= gear[i].name %>">
-                </a><br>
-                <br>
-                <form action="/gear/<%= gear[i].id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="DELETE">
-                </form>
-                <% } %>
-                    <a href="/gear/new">Add Item</a>
+                    <div class="image-div">
+                        <img src="<%= gear[i].image %>" alt="image of a <%= gear[i].name %>">
+                    </div>
+                </a>
+                <a href="/gear/<%= gear[i].id %>">
+                    <%= gear[i].name %>
+                </a>
+                <%= gear[i].type %>
+                    <%= gear[i].color %>
+
+
+                        <form action="/gear/<%= gear[i].id %>?_method=DELETE" method="POST">
+                            <input type="submit" value="DELETE">
+                        </form>
+                        <a href="/gear/<%= gear[i].id %>/edit"><button>EDIT</button></a>
+            </div>
+            <% } %>
+
+                <div class="item-box">
+                    <a href="/gear/new">
+                        <div class="add-item-button">
+                            <p id="plus-sign">+</p>
+                            <p>Add Item</p>
+                        </div>
+                    </a>
+
+                </div>
+    </div>
 </body>
 
 </html>
