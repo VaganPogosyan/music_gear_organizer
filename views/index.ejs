@@ -20,6 +20,9 @@
                     <img src="<%= gear[i].image %>" alt="<%= gear[i].name %>">
                 </a><br>
                 <br>
+                <form action="/gear/<%= gear[i].id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE">
+                </form>
                 <% } %>
                     <a href="/gear/new">Add Item</a>
 </body>

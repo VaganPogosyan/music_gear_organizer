@@ -60,6 +60,20 @@ APP.get('/gear/:id', (req, res) => {
     });
 });
 
+// delete
+APP.delete('/gear/:id', (req, res) => {
+    gearItem.findByIdAndRemove(req.params.id, { useFindAndModify: false }, (error, data) => {
+        res.redirect('/gear');
+    });
+});
+
+// delete
+APP.delete('/gear/:id', (req, res) => {
+    gearItem.findByIdAndRemove(req.params.id, { useFindAndModify: false }, (error, data) => {
+        res.redirect('/gear');
+    });
+});
+
 // index
 APP.get('/gear', (req, res) => {
     gearItem.find({}, (error, allGear) => {
