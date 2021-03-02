@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Page</title>
+</head>
+
+<body>
+    <h1>Edit Item</h1>
+    <form action="/gear/<%= gear.id %>?_method=PUT" method="POST">
+        Name: <input type="text" name="name" value="<%= gear.name %>"><br>
+        Type: <input type="text" name="type" value="<%= gear.type %>"><br>
+        Color: <input type="text" name="color" value="<%= gear.color %>"><br>
+        Description: <input type="text" name="description" value="<%= gear.description %>"><br>
+        Needs fixing/replacement: <input type="checkbox" name="needsReplacement"
+            value="<%= gear.needsReplacement %>"><br>
+        Image URL: <input type="text" name="image-url" id="image-url" value="<%= gear.image %>"><br>
+
+        <input type="submit" name="" value="EDIT ITEM">
+    </form>
+    <a href="/gear">Go back to home page</a>
+</body>
+
+</html>

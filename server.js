@@ -14,14 +14,13 @@ APP.use(express.urlencoded({ extended: true }));
 APP.use(methodOverride('_method'));
 
 // mongoose conection
-mongoose.connect('mongodb://localhost:27017/gear', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/gear', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
     console.log('connected to mongo');
 });
 
 
 // ROUTES
-
 // seed
 APP.get('/gear/seed', (req, res) => {
     gearItem.create([
@@ -35,9 +34,7 @@ APP.get('/gear/seed', (req, res) => {
     ], (error, data) => {
         res.redirect('/gear');
     });
-
 });
-
 
 // new
 APP.get('/gear/new', (req, res) => {
@@ -60,10 +57,19 @@ APP.get('/gear/:id', (req, res) => {
     });
 });
 
-// delete
-APP.delete('/gear/:id', (req, res) => {
-    gearItem.findByIdAndRemove(req.params.id, { useFindAndModify: false }, (error, data) => {
-        res.redirect('/gear');
+// Get edit
+APP.get('/gear/:id/edit', (req, res) => {
+    gearItem.findById(req.params.id, (error, foundGear) => {
+        res.render('edit.ejs', {
+            gear: foundGear
+        })
+    });
+});
+
+// Put edit
+APP.put('/gear/:id', (req, res) => {
+    gearItem.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, updatedGear) => {
+        res.redirect('/gear/' + req.params.id);
     });
 });
 
@@ -82,8 +88,6 @@ APP.get('/gear', (req, res) => {
         });
     });
 });
-
-
 
 
 
