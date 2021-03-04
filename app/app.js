@@ -1,8 +1,13 @@
 $(() => {
-    // $('#add-item').on('click', () => {
-    //     const $URL = $('#image-url').val();
-    //     console.log($URL);
-    // })
+    $('#add-item').on('click', () => {
+        const $URL = $('#image-url').text();
+        console.log($URL);
+    })
 
-    console.log('hello')
+    // $('#add-item').on('click', () => {
+    //     alert('hey');
+    // });
+
+
+    // console.log('hello');
 })

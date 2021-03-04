@@ -12,26 +12,28 @@
 <body>
     <h1>Music Gear Organizer</h1>
     <div class="container-guitars">
-        <h2>Guitars</h2>
+        <div class="h2-class">
+            <h2>Guitars</h2>
+        </div>
 
-        <% for (let i=0; i < gear.length; i++) { %>
+        <% for (let i=0; i < guitars.length; i++) { %>
             <div class="item-box">
-                <a href="/gear/<%= gear[i].id %>">
+                <a href="/gear/<%= guitars[i].id %>">
                     <div class="image-div">
-                        <img src="<%= gear[i].image %>" alt="image of a <%= gear[i].name %>">
+                        <img src="<%= guitars[i].image %>" alt="image of a <%= guitars[i].name %>">
                     </div>
                 </a>
-                <a href="/gear/<%= gear[i].id %>">
-                    <%= gear[i].name %>
+                <a href="/gear/<%= guitars[i].id %>">
+                    <%= guitars[i].name %>
                 </a>
-                <%= gear[i].type %>
-                    <%= gear[i].color %>
+                <%= guitars[i].type %>
 
-
-                        <form action="/gear/<%= gear[i].id %>?_method=DELETE" method="POST">
-                            <input type="submit" value="DELETE">
+                    <div class="buttons">
+                        <form action="/gear/<%= guitars[i].id %>?_method=DELETE" method="POST">
+                            <input id="delete-button" type="submit" value="DELETE">
                         </form>
-                        <a href="/gear/<%= gear[i].id %>/edit"><button>EDIT</button></a>
+                        <a href="/gear/<%= guitars[i].id %>/edit"><button id="edit-button">EDIT</button></a>
+                    </div>
             </div>
             <% } %>
 
@@ -45,6 +47,46 @@
 
                 </div>
     </div>
+
+    <div class="container-guitars">
+        <div class="h2-class">
+            <h2>Keyboards</h2>
+        </div>
+
+        <% for (let i=0; i < keyboards.length; i++) { %>
+            <div class="item-box">
+                <a href="/gear/<%= keyboards[i].id %>">
+                    <div class="image-div">
+                        <img src="<%= keyboards[i].image %>" alt="image of a <%= keyboards[i].name %>">
+                    </div>
+                </a>
+                <a href="/gear/<%= keyboards[i].id %>">
+                    <%= keyboards[i].name %>
+                </a>
+                <%= keyboards[i].type %>
+
+                    <div class="buttons">
+                        <form action="/gear/<%= keyboards[i].id %>?_method=DELETE" method="POST">
+                            <input id="delete-button" type="submit" value="DELETE">
+                        </form>
+                        <a href="/gear/<%= keyboards[i].id %>/edit"><button id="edit-button">EDIT</button></a>
+                    </div>
+            </div>
+            <% } %>
+
+                <div class="item-box">
+                    <a href="/gear/new">
+                        <div class="add-item-button">
+                            <p id="plus-sign">+</p>
+                            <p>Add Item</p>
+                        </div>
+                    </a>
+
+                </div>
+    </div>
+    </div>
+
 </body>
+
 
 </html>
