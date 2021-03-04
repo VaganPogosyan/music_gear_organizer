@@ -26,11 +26,53 @@ mongoose.connection.once('open', () => {
 APP.get('/gear/seed', (req, res) => {
     gearItem.create([
         {
-            name: 'Fender CD-60',
-            type: 'Electro-Acoustic guitar',
+            name: 'Fender CD-60CE',
+            type: 'guitar',
             color: 'NAT',
             needsReplacement: false,
-            image: 'https://thumbs.static-thomann.de/thumb/orig/pics/prod/190655.jpg'
+            image: 'https://cdn11.bigcommerce.com/s-49c12/images/stencil/1280x1280/products/9848/17068/apixnxqhv__77307.1523375085.jpg?c=2'
+        },
+        {
+            name: 'AKAI MPK mini',
+            type: 'keyboard',
+            color: 'Black',
+            needsReplacement: false,
+            image: 'https://dt7v1i9vyp3mf.cloudfront.net/styles/news_large/s3/imagelibrary/A/AkaiMPKMini_01-Fqt73Lxog0.DPKPDFRpTc3jdBbPXb.Ak.jpg'
+        },
+        {
+            name: 'Easter 22inch Drum Set',
+            type: 'drums',
+            color: 'Black',
+            needsReplacement: false,
+            image: 'https://images-na.ssl-images-amazon.com/images/I/71nJgkQau1L._AC_SL1500_.jpg'
+        },
+        {
+            name: 'Hosa GTR',
+            type: '',
+            color: 'Black',
+            needsReplacement: false,
+            image: 'https://m.media-amazon.com/images/I/41t0RbRKkvL._AC_.jpg'
+        },
+        {
+            name: 'Fender Stratocaster',
+            type: 'guitar',
+            color: 'Gold',
+            needsReplacement: false,
+            image: 'https://media.sweetwater.com/api/i/q-82__ha-01b7239fc18f7036__hmac-2528d6ff549631ed535f2eec664dbe970e6264e8/images/closeup/750-Strat75MDA_front.jpg'
+        },
+        {
+            name: 'Ukulele',
+            type: 'guitar',
+            color: 'Mahogany',
+            needsReplacement: false,
+            image: 'https://images-na.ssl-images-amazon.com/images/I/715H8YOm4rL._AC_SY879_.jpg'
+        },
+        {
+            name: 'Fender Mustang LT25',
+            type: '',
+            color: 'Black',
+            needsReplacement: false,
+            image: 'https://thumbs.static-thomann.de/thumb/orig/pics/bdb/456903/13933481_800.jpg'
         }
     ], (error, data) => {
         res.redirect('/gear');
@@ -129,6 +171,7 @@ APP.get('/gear', (req, res) => {
         const allItems = {};
         const guitars = [];
         const keyboards = [];
+        const drums = [];
         const otherItems = [];
         // variable to count
         let count = 0;
@@ -147,6 +190,10 @@ APP.get('/gear', (req, res) => {
                     allItems['keyboards'] = keyboards;
                     keyboards.push(allInstruments[i]);
                     console.log(keyboards);
+                } else if (allInstruments[i].type === 'drums') {
+                    allItems['drums'] = drums;
+                    drums.push(allInstruments[i]);
+                    console.log(drums);
                 }
                 // now we added a key of allInstruments[i].type with a value as an empty array
 
@@ -155,7 +202,7 @@ APP.get('/gear', (req, res) => {
                 // console.log(allItems);
             } else {
                 // if item doesn't have a type we add to it a key of 'other items' with value of empty array
-                allItems['other items'] = otherItems;
+                allItems['otherItems'] = otherItems;
                 otherItems.push(allInstruments[i]);
                 console.log(otherItems);
 
@@ -169,7 +216,9 @@ APP.get('/gear', (req, res) => {
 
         res.render('index.ejs', {
             guitars: allItems.guitars,
-            keyboards: allItems.keyboards
+            keyboards: allItems.keyboards,
+            drums: allItems.drums,
+            otherItems: allItems.otherItems
         });
     });
 });
