@@ -33,7 +33,7 @@ db.on('open', () => { });
 
 // controller logic
 const gearController = require('./controllers/gear.js');
-APP.use('/gear', gearController);
+APP.use(gearController);
 
 // middleware to help with the form submission
 APP.use(express.urlencoded({ extended: true }));
