@@ -22,7 +22,10 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 // open the connection to mongo
 db.on('open', () => { });
 
-
+// middleware to help with the form submission
+APP.use(express.urlencoded({ extended: true }));
+APP.use(methodOverride('_method'));
+APP.use(express.static('public'));
 
 // mongoose conection
 // mongoose.connect('mongodb://localhost:27017/gear', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -35,10 +38,7 @@ db.on('open', () => { });
 const gearController = require('./controllers/gear.js');
 APP.use(gearController);
 
-// middleware to help with the form submission
-APP.use(express.urlencoded({ extended: true }));
-APP.use(methodOverride('_method'));
-APP.use(express.static('public'));
+
 
 
 // APP.get('/', (req, res) => {
