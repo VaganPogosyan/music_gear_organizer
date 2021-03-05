@@ -6,7 +6,7 @@ const gearItem = require('../models/gear.js');
 
 // ROUTES
 // seed
-ROUTER.get('/gear/seed', (req, res) => {
+ROUTER.get('/seed', (req, res) => {
     gearItem.create([
         {
             name: 'Fender CD-60CE',
@@ -78,12 +78,12 @@ ROUTER.get('/gear/seed', (req, res) => {
 });
 
 // new
-ROUTER.get('/gear/new', (req, res) => {
+ROUTER.get('/new', (req, res) => {
     res.render('new.ejs');
 });
 
 // post/create
-ROUTER.post('/gear', (req, res) => {
+ROUTER.post('/', (req, res) => {
     if (req.body.needsReplacement === 'on') {
         req.body.needsReplacement = true;
     } else {
@@ -95,7 +95,7 @@ ROUTER.post('/gear', (req, res) => {
 });
 
 // show
-ROUTER.get('/gear/:id', (req, res) => {
+ROUTER.get('/:id', (req, res) => {
     gearItem.findById(req.params.id, (error, foundGear) => {
         res.render('show.ejs', {
             gear: foundGear
@@ -104,7 +104,7 @@ ROUTER.get('/gear/:id', (req, res) => {
 });
 
 // Get edit
-ROUTER.get('/gear/:id/edit', (req, res) => {
+ROUTER.get('/:id/edit', (req, res) => {
     gearItem.findById(req.params.id, (error, foundGear) => {
         res.render('edit.ejs', {
             gear: foundGear
@@ -113,7 +113,7 @@ ROUTER.get('/gear/:id/edit', (req, res) => {
 });
 
 // Put edit
-ROUTER.put('/gear/:id', (req, res) => {
+ROUTER.put('/:id', (req, res) => {
     if (req.body.needsReplacement === 'on') {
         req.body.needsReplacement = true;
     } else {
@@ -126,14 +126,14 @@ ROUTER.put('/gear/:id', (req, res) => {
 });
 
 // delete
-ROUTER.delete('/gear/:id', (req, res) => {
+ROUTER.delete('/:id', (req, res) => {
     gearItem.findByIdAndRemove(req.params.id, { useFindAndModify: false }, (error, data) => {
         res.redirect('/gear');
     });
 });
 
 // index
-ROUTER.get('/gear', (req, res) => {
+ROUTER.get('/', (req, res) => {
     gearItem.find({}, (error, allInstruments) => {
         console.log(allInstruments)
         // allGuitars is all items in our database

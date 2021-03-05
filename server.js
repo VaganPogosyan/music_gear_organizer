@@ -33,7 +33,7 @@ db.on('open', () => { });
 
 // controller logic
 const gearController = require('./controllers/gear.js');
-APP.use(gearController);
+APP.use('/gear', gearController);
 
 // middleware to help with the form submission
 APP.use(express.urlencoded({ extended: true }));
@@ -41,9 +41,9 @@ APP.use(methodOverride('_method'));
 APP.use(express.static('public'));
 
 
-APP.get('/', (req, res) => {
-    res.send('Hello world!');
-})
+// APP.get('/', (req, res) => {
+//     res.send('Hello world!');
+// })
 
 // listener
 APP.listen(PORT, () => {
