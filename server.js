@@ -21,207 +21,184 @@ mongoose.connection.once('open', () => {
 });
 
 
-// ROUTES
-// seed
-APP.get('/gear/seed', (req, res) => {
-    gearItem.create([
-        {
-            name: 'Fender CD-60CE',
-            type: 'guitar',
-            color: 'NAT',
-            needsReplacement: false,
-            image: 'https://cdn11.bigcommerce.com/s-49c12/images/stencil/1280x1280/products/9848/17068/apixnxqhv__77307.1523375085.jpg?c=2'
-        },
-        {
-            name: 'AKAI MPK mini',
-            type: 'keyboard',
-            color: 'Black',
-            needsReplacement: false,
-            image: 'https://dt7v1i9vyp3mf.cloudfront.net/styles/news_large/s3/imagelibrary/A/AkaiMPKMini_01-Fqt73Lxog0.DPKPDFRpTc3jdBbPXb.Ak.jpg'
-        },
-        {
-            name: 'Easter 22inch Drum Set',
-            type: 'drums',
-            color: 'Black',
-            needsReplacement: false,
-            image: 'https://images-na.ssl-images-amazon.com/images/I/71nJgkQau1L._AC_SL1500_.jpg'
-        },
-        {
-            name: 'Hosa GTR',
-            type: '',
-            color: 'Black',
-            needsReplacement: false,
-            image: 'https://m.media-amazon.com/images/I/41t0RbRKkvL._AC_.jpg'
-        },
-        {
-            name: 'Fender Stratocaster',
-            type: 'guitar',
-            color: 'Gold',
-            needsReplacement: false,
-            image: 'https://media.sweetwater.com/api/i/q-82__ha-01b7239fc18f7036__hmac-2528d6ff549631ed535f2eec664dbe970e6264e8/images/closeup/750-Strat75MDA_front.jpg'
-        },
-        {
-            name: 'Ukulele',
-            type: 'guitar',
-            color: 'Mahogany',
-            needsReplacement: false,
-            image: 'https://images-na.ssl-images-amazon.com/images/I/715H8YOm4rL._AC_SY879_.jpg'
-        },
-        {
-            name: 'Fender Mustang LT25',
-            type: '',
-            color: 'Black',
-            needsReplacement: false,
-            image: 'https://thumbs.static-thomann.de/thumb/orig/pics/bdb/456903/13933481_800.jpg'
-        }
-    ], (error, data) => {
-        res.redirect('/gear');
-    });
-});
+// // ROUTES
+// // seed
+// APP.get('/gear/seed', (req, res) => {
+//     gearItem.create([
+//         {
+//             name: 'Fender CD-60CE',
+//             type: 'guitar',
+//             color: 'NAT',
+//             needsReplacement: false,
+//             description: "Electro-acoustic guitar",
+//             image: 'https://cdn11.bigcommerce.com/s-49c12/images/stencil/1280x1280/products/9848/17068/apixnxqhv__77307.1523375085.jpg?c=2'
+//         },
+//         {
+//             name: 'AKAI MPK mini',
+//             type: 'keyboard',
+//             color: 'Black',
+//             needsReplacement: false,
+//             description: "MIDI keyboard",
+//             image: 'https://dt7v1i9vyp3mf.cloudfront.net/styles/news_large/s3/imagelibrary/A/AkaiMPKMini_01-Fqt73Lxog0.DPKPDFRpTc3jdBbPXb.Ak.jpg'
+//         },
+//         {
+//             name: 'Easter 22inch Drum Set',
+//             type: 'drums',
+//             color: 'Black',
+//             needsReplacement: false,
+//             description: "Drumset with four main drums and two cymbals",
+//             image: 'https://images-na.ssl-images-amazon.com/images/I/71nJgkQau1L._AC_SL1500_.jpg'
+//         },
+//         {
+//             name: 'Hosa GTR',
+//             type: 'other items',
+//             color: 'Black',
+//             needsReplacement: false,
+//             description: "Guitar cable",
+//             image: 'https://m.media-amazon.com/images/I/41t0RbRKkvL._AC_.jpg'
+//         },
+//         {
+//             name: 'Fender Stratocaster',
+//             type: 'guitar',
+//             color: 'Gold',
+//             needsReplacement: false,
+//             description: "Electric guitar",
+//             image: 'https://media.sweetwater.com/api/i/q-82__ha-01b7239fc18f7036__hmac-2528d6ff549631ed535f2eec664dbe970e6264e8/images/closeup/750-Strat75MDA_front.jpg'
+//         },
+//         {
+//             name: 'Ukulele',
+//             type: 'guitar',
+//             color: 'Mahogany',
+//             needsReplacement: false,
+//             description: "Small ukulele guitar",
+//             image: 'https://images-na.ssl-images-amazon.com/images/I/715H8YOm4rL._AC_SY879_.jpg'
+//         },
+//         {
+//             name: 'Fender Mustang LT25',
+//             type: 'other items',
+//             color: 'Black',
+//             needsReplacement: false,
+//             description: "Amplifier",
+//             image: 'https://thumbs.static-thomann.de/thumb/orig/pics/bdb/456903/13933481_800.jpg'
+//         },
+//         {
+//             name: 'Samson C01PRO',
+//             type: 'other items',
+//             color: 'Silver',
+//             needsReplacement: false,
+//             description: "USB condenser microphone",
+//             image: 'http://www.samsontech.com/site_media/cms/collateral_images/samson-c01u-pro/co1u_pro_stand_1.jpg'
+//         }
+//     ], (error, data) => {
+//         res.redirect('/gear');
+//     });
+// });
 
-// new
-APP.get('/gear/new', (req, res) => {
-    res.render('new.ejs');
-});
+// // new
+// APP.get('/gear/new', (req, res) => {
+//     res.render('new.ejs');
+// });
 
-// post/create
-APP.post('/gear', (req, res) => {
-    gearItem.create(req.body, (error, createdGear) => {
-        res.redirect('/gear');
-    });
-});
+// // post/create
+// APP.post('/gear', (req, res) => {
+//     if (req.body.needsReplacement === 'on') {
+//         req.body.needsReplacement = true;
+//     } else {
+//         req.body.needsReplacement = false;
+//     };
+//     gearItem.create(req.body, (error, createdGear) => {
+//         res.redirect('/gear');
+//     });
+// });
 
-// show
-APP.get('/gear/:id', (req, res) => {
-    gearItem.findById(req.params.id, (error, foundGear) => {
-        res.render('show.ejs', {
-            gear: foundGear
-        });
-    });
-});
+// // show
+// APP.get('/gear/:id', (req, res) => {
+//     gearItem.findById(req.params.id, (error, foundGear) => {
+//         res.render('show.ejs', {
+//             gear: foundGear
+//         });
+//     });
+// });
 
-// Get edit
-APP.get('/gear/:id/edit', (req, res) => {
-    gearItem.findById(req.params.id, (error, foundGear) => {
-        res.render('edit.ejs', {
-            gear: foundGear
-        })
-    });
-});
+// // Get edit
+// APP.get('/gear/:id/edit', (req, res) => {
+//     gearItem.findById(req.params.id, (error, foundGear) => {
+//         res.render('edit.ejs', {
+//             gear: foundGear
+//         })
+//     });
+// });
 
-// Put edit
-APP.put('/gear/:id', (req, res) => {
-    console.log(req.body)
-    gearItem.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, updatedGear) => {
-        res.redirect('/gear/' + req.params.id);
-    });
+// // Put edit
+// APP.put('/gear/:id', (req, res) => {
+//     if (req.body.needsReplacement === 'on') {
+//         req.body.needsReplacement = true;
+//     } else {
+//         req.body.needsReplacement = false;
+//     };
+//     gearItem.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, updatedGear) => {
+//         res.redirect('/gear/' + req.params.id);
+//     });
 
-});
+// });
 
-// delete
-APP.delete('/gear/:id', (req, res) => {
-    gearItem.findByIdAndRemove(req.params.id, { useFindAndModify: false }, (error, data) => {
-        res.redirect('/gear');
-    });
-});
+// // delete
+// APP.delete('/gear/:id', (req, res) => {
+//     gearItem.findByIdAndRemove(req.params.id, { useFindAndModify: false }, (error, data) => {
+//         res.redirect('/gear');
+//     });
+// });
 
-// index
+// // index
+// APP.get('/gear', (req, res) => {
+//     gearItem.find({}, (error, allInstruments) => {
+//         console.log(allInstruments)
+//         // allGuitars is all items in our database
+//         // create an empty object to store all items
+//         const allItems = {};
+//         const guitars = [];
+//         const keyboards = [];
+//         const drums = [];
+//         const otherItems = [];
+//         // variable to count
+//         let count = 0;
+//         // loop thorugh every item in database 
+//         for (let i = 0; i < allInstruments.length; i++) {
+//             console.log('~~~~~')
+//             console.log(allInstruments[i].type);
+//             // allInstruments[i].type is a value of a key-value pair "type: guitar/keyboard/etc" in each item
+//             // if that value exists we're appending that key-value pair to allItems via square bracket notation like so: < obj['key'] = 'value' >
+//             if (allInstruments[i].type) {
+//                 if (allInstruments[i].type === 'guitar') {
+//                     allItems['guitars'] = guitars;
+//                     guitars.push(allInstruments[i]);
+//                     console.log(guitars);
+//                 } else if (allInstruments[i].type === 'keyboard') {
+//                     allItems['keyboards'] = keyboards;
+//                     keyboards.push(allInstruments[i]);
+//                     console.log(keyboards);
+//                 } else if (allInstruments[i].type === 'drums') {
+//                     allItems['drums'] = drums;
+//                     drums.push(allInstruments[i]);
+//                     console.log(drums);
+//                 } else if (allInstruments[i].type === 'other items') {
+//                     allItems['other items'] = otherItems;
+//                     otherItems.push(allInstruments[i]);
+//                     console.log(otherItems);
+//                 }
+//             }
+//         }
+//         console.log('~~~~~~~~~3');
+//         console.log(allItems);
 
-/*
-
-{
-  'guitar': [{guitar1}, {guitar2}, etc...],
-  'keyboard': [{keyboard1}, {keyboard2}, etc...],
-  etc...
-}
-
-const gearSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    type: { type: String },
-    color: { type: String },
-    description: { type: String },
-    needsReplacement: { type: Boolean },
-    image: { type: String }
-});
-
-
-find by type > for loop 
-
-create an empty array where we'll store items found by type 
-
-- if the type exists im appending the item to the array
-- if it doesnt put in in an empty array
-- 
-
-push found items into an array
-
-
-- allGuitars
-get the type key an
-if the type === guitar 
-
-*/
-
-
-APP.get('/gear', (req, res) => {
-    gearItem.find({}, (error, allInstruments) => {
-        console.log(allInstruments)
-        // allGuitars is all items in our database
-        // create an empty object to store all items
-        const allItems = {};
-        const guitars = [];
-        const keyboards = [];
-        const drums = [];
-        const otherItems = [];
-        // variable to count
-        let count = 0;
-        // loop thorugh every item in database 
-        for (let i = 0; i < allInstruments.length; i++) {
-            console.log('~~~~~')
-            console.log(allInstruments[i].type);
-            // allInstruments[i].type is a value of a key-value pair "type: guitar/keyboard/etc" in each item
-            // if that value exists we're appending that key-value pair to allItems via square bracket notation like so: < obj['key'] = 'value' >
-            if (allInstruments[i].type) {
-                if (allInstruments[i].type === 'guitar') {
-                    allItems['guitars'] = guitars;
-                    guitars.push(allInstruments[i]);
-                    console.log(guitars);
-                } else if (allInstruments[i].type === 'keyboard') {
-                    allItems['keyboards'] = keyboards;
-                    keyboards.push(allInstruments[i]);
-                    console.log(keyboards);
-                } else if (allInstruments[i].type === 'drums') {
-                    allItems['drums'] = drums;
-                    drums.push(allInstruments[i]);
-                    console.log(drums);
-                }
-                // now we added a key of allInstruments[i].type with a value as an empty array
-
-                // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                // console.log('~~~~~~~~~1');
-                // console.log(allItems);
-            } else {
-                // if item doesn't have a type we add to it a key of 'other items' with value of empty array
-                allItems['otherItems'] = otherItems;
-                otherItems.push(allInstruments[i]);
-                console.log(otherItems);
-
-                // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                // console.log('~~~~~~~~~2');
-                // console.log(allItems);
-            }
-        }
-        console.log('~~~~~~~~~3');
-        console.log(allItems);
-
-        res.render('index.ejs', {
-            guitars: allItems.guitars,
-            keyboards: allItems.keyboards,
-            drums: allItems.drums,
-            otherItems: allItems.otherItems
-        });
-    });
-});
+//         res.render('index.ejs', {
+//             guitars: allItems.guitars,
+//             keyboards: allItems.keyboards,
+//             drums: allItems.drums,
+//             otherItems: allItems['other items']
+//         });
+//     });
+// });
 
 
 

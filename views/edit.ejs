@@ -6,21 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Page</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <h1>Edit Item</h1>
     <form action="/gear/<%= gear.id %>?_method=PUT" method="POST">
-        Name: <input type="text" name="name" value="<%= gear.name %>"><br>
-        Type: <input type="text" name="type" value="<%= gear.type %>"><br>
+        Name: <input type="text" name="name" value="<%= gear.name %>"> <br>
+        Type: <select name="type" id="type">
+            <option value="guitar" <% if ( gear.type==='guitar' ) { %>
+                selected
+                <% } %>
+                    >guitar
+            </option>
+            <option value="keyboard" <% if ( gear.type==='keyboard' ) { %>
+                selected
+                <% } %>
+                    >keyboard
+            </option>
+            <option value="drums" <% if ( gear.type==='drums' ) { %>
+                selected
+                <% } %>
+                    >drums
+            </option>
+            <option value="other items" <% if ( gear.type==='other items' ) { %>
+                selected
+                <% } %>
+                    >other items
+            </option>
+        </select><br>
         Color: <input type="text" name="color" value="<%= gear.color %>"><br>
         Description: <input type="text" name="description" value="<%= gear.description %>"><br>
-        Needs fixing/replacement: <input type="checkbox" name="needsReplacement"
-            value="<%= gear.needsReplacement %>"><br>
-        Image URL: <input type="text" name="image" id="image-url" value="<%= gear.image %>"><br>
-        <img src="<%= gear.image %>" alt="<%= gear.name %>">
+        Needs fixing/replacement: <input type="checkbox" name="needsReplacement" <% if (gear.needsReplacement===true) {
+            %>
+        checked
+        <% } %> ><br>
+            Image URL: <input type="text" name="image" id="image-url" value="<%= gear.image %>"><br>
+            <img src="<%= gear.image %>" alt="<%= gear.name %>">
 
-        <input type="submit" name="" value="EDIT ITEM">
+            <input type="submit" name="" value="SAVE CHANGES">
     </form>
     <a href="/gear">Go back to home page</a>
 </body>

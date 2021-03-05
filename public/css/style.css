@@ -1,18 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fascinate&family=Mountains+of+Christmas:wght@700&family=Press+Start+2P&display=swap');
+
 body {
-    background-color: rgb(176, 116, 53);
+    background-color: rgb(255, 244, 232);
+     /* font-family: 'Bebas Neue', cursive;  */
+     /* font-family: 'Fascinate', cursive;  */
+     /* font-family: 'Mountains of Christmas', cursive;  */
+    /* font-family: 'Press Start 2P', cursive; */
 }
 
 a {
     text-decoration: none;
+    color: black;
+}
+
+.link-name {
+    text-decoration: none;
     transition: 100ms;
+    font-size: larger;
+    max-width: 200px;
+    font-family: 'Bebas Neue', cursive;
 }
 
 .link-name:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 
-.container-guitars {
+.container {
     background-color: rgb(223, 205, 181);
     border:2px solid brown;
     display: flex;
@@ -20,10 +34,24 @@ a {
     width: 90vw;
     margin: 0 auto;
     padding: 10px;
+    padding-bottom: 30px;
     flex-wrap: nowrap;
     overflow: auto;
     position: relative;
     margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#app-name {
+    width: 700px;
+    margin: 30px auto;
+    background-color: rgb(255, 145, 49);
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    margin-bottom: -20px;
+    font-family: 'Fascinate', cursive; 
 }
 
 .h2-class {
@@ -36,6 +64,7 @@ h2 {
     position: absolute;
     top: -18px;
     left: 20px;
+    width: 300px;
 }
 
 .item-box {
@@ -43,14 +72,16 @@ h2 {
     margin-right: 30px;
     margin-top: 40px;
     min-width: 200px;
+    max-width: 200px;
     height: 300px;
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 224, 192);
-    border: 2px solid rgb(0, 101, 86);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(155, 60, 0);
     border-radius: 20px;
     justify-content: center;
     align-items: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .add-item-button {
@@ -58,6 +89,7 @@ h2 {
     width: 100px;
     height: 100px;
     border-radius: 20px;
+    border: 1px solid rgb(194, 177, 150);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,20 +113,37 @@ h2 {
     justify-content: space-evenly;
 }
 
+
 #delete-button, #edit-button {
-    color: purple;
+    background:rgb(155, 60, 0);
+    color: white;
+    border-radius: 3px;
+    border: 1px solid rgb(255, 157, 71);
+    padding: 10px;
+}
+
+#delete-button:hover,
+#edit-button:hover {
+    cursor: pointer;
+    background:rgb(177, 73, 7);
 }
 
 #plus-sign {
-    font-size: 40px;
+    font-size: 70px;
     font-weight: bolder;
-    font-family:Verdana, Tahoma, sans-serif;
+    /* font-family:Verdana, Tahoma, sans-serif; */
+    font-family: 'Mountains of Christmas', cursive;
+    color:rgb(155, 60, 0);
 }
 
-p:last-child{
+.add-item {
+    font-size: 20px;
     position:relative;
-    bottom: 18px;
-}
+    bottom: 45px;
+    color:rgb(155, 60, 0);
+    /* font-family: 'Mountains of Christmas', cursive; */
+    font-family: 'Bebas Neue', cursive;
+} 
 
 .image-div {
     display: flex;
@@ -104,7 +153,7 @@ p:last-child{
     transition: 100ms;
 }
 
-img {
+.image-div img {
     max-height: 170px;
     max-width: 170px;
     margin: 10px;
@@ -113,4 +162,16 @@ img {
 
 .image-div:hover {
     transform: scale(1.1);
+}
+
+.show-image img {
+    width: 300px;
+}
+
+.description {
+    margin: 0;
+    color:rgba(94, 75, 0);
+    max-width: 190px;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
 }

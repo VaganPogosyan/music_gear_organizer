@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <h1>Music Gear Organizer</h1>
-    <div class="container-guitars">
+    <h1 id="app-name">Music <span style="color:rgb(69, 30, 0)">Gear</span> Organizer</h1>
+    <div class="container">
         <div class="h2-class">
             <h2>Guitars</h2>
         </div>
@@ -23,10 +23,12 @@
                         <img src="<%= guitars[i].image %>" alt="image of a <%= guitars[i].name %>">
                     </div>
                 </a>
-                <a href="/gear/<%= guitars[i].id %>">
+                <a class="link-name" href="/gear/<%= guitars[i].id %>">
                     <%= guitars[i].name %>
                 </a>
-
+                <p class="description">
+                    <%= guitars[i].description %>
+                </p>
 
                 <div class="buttons">
                     <form action="/gear/<%= guitars[i].id %>?_method=DELETE" method="POST">
@@ -41,14 +43,14 @@
                     <a href="/gear/new">
                         <div class="add-item-button">
                             <p id="plus-sign">+</p>
-                            <p>Add Item</p>
+                            <p class="add-item">Add Item</p>
                         </div>
                     </a>
 
                 </div>
     </div>
 
-    <div class="container-guitars">
+    <div class="container">
         <div class="h2-class">
             <h2>Keyboards</h2>
         </div>
@@ -60,10 +62,12 @@
                         <img src="<%= keyboards[i].image %>" alt="image of a <%= keyboards[i].name %>">
                     </div>
                 </a>
-                <a href="/gear/<%= keyboards[i].id %>">
+                <a class="link-name" href="/gear/<%= keyboards[i].id %>">
                     <%= keyboards[i].name %>
                 </a>
-
+                <p class="description">
+                    <%= keyboards[i].description %>
+                </p>
 
                 <div class="buttons">
                     <form action="/gear/<%= keyboards[i].id %>?_method=DELETE" method="POST">
@@ -78,14 +82,14 @@
                     <a href="/gear/new">
                         <div class="add-item-button">
                             <p id="plus-sign">+</p>
-                            <p>Add Item</p>
+                            <p class="add-item">Add Item</p>
                         </div>
                     </a>
 
                 </div>
     </div>
 
-    <div class="container-guitars">
+    <div class="container">
         <div class="h2-class">
             <h2>Drums</h2>
         </div>
@@ -97,10 +101,12 @@
                         <img src="<%= drums[i].image %>" alt="image of a <%= drums[i].name %>">
                     </div>
                 </a>
-                <a href="/gear/<%= drums[i].id %>">
+                <a class="link-name" href="/gear/<%= drums[i].id %>">
                     <%= drums[i].name %>
                 </a>
-
+                <p class="description">
+                    <%= drums[i].description %>
+                </p>
 
                 <div class="buttons">
                     <form action="/gear/<%= drums[i].id %>?_method=DELETE" method="POST">
@@ -115,14 +121,14 @@
                     <a href="/gear/new">
                         <div class="add-item-button">
                             <p id="plus-sign">+</p>
-                            <p>Add Item</p>
+                            <p class="add-item">Add Item</p>
                         </div>
                     </a>
 
                 </div>
     </div>
 
-    <div class="container-guitars">
+    <div class="container">
         <div class="h2-class">
             <h2>Other Gear</h2>
         </div>
@@ -134,9 +140,12 @@
                         <img src="<%= otherItems[i].image %>" alt="image of a <%= otherItems[i].name %>">
                     </div>
                 </a>
-                <a href="/gear/<%= otherItems[i].id %>">
+                <a class="link-name" href="/gear/<%= otherItems[i].id %>">
                     <%= otherItems[i].name %>
                 </a>
+                <p class="description">
+                    <%= otherItems[i].description %>
+                </p>
 
 
                 <div class="buttons">
@@ -152,7 +161,7 @@
                     <a href="/gear/new">
                         <div class="add-item-button">
                             <p id="plus-sign">+</p>
-                            <p>Add Item</p>
+                            <p class="add-item">Add Item</p>
                         </div>
                     </a>
 
