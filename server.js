@@ -36,7 +36,7 @@ APP.use(express.static('public'));
 
 // controller logic
 const gearController = require('./controllers/gear.js');
-APP.use(gearController);
+APP.use('/gear', gearController);
 
 
 
