@@ -21,9 +21,11 @@ Live site:
 * Sections with different gear classified by type
 
 ## Wireframe
-![Wireframe for music gear organizer]
+![Wireframe for music gear organizer](/wireframe/IMG_7027.jpg)
+
 
 ## Future Development
+- Debug: when deleting last item from a section DB gives back an error
 - Functionality to have a personal private account
 - More styling
 - Show a template image if user didn't add a URL
