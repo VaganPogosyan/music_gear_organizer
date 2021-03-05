@@ -1,5 +1,4 @@
 # Music Gear Organizer
-General Assembly Project 2 - Music Gear Organizer
 
 ## Overview
 SEI-19 Project 2: Music Gear Organizer
@@ -21,7 +20,9 @@ Live site:
 * Sections with different gear classified by type
 
 ## Wireframe
-![Wireframe for music gear organizer](/wireframe/IMG_7027.jpg)
+![Wireframe for music gear organizer 1](/wireframe/IMG_7027.jpg)
+![Wireframe for music gear organizer 2](wireframe/IMG_7028.jpg)
+![Wireframe for music gear organizer 3](wireframe/IMG_7029.jpg)
 
 
 ## Future Development
