@@ -5,7 +5,7 @@ SEI-19 Project 2: Music Gear Organizer
 
 A web application created for musicians to store and organize their music gear and instruments in one app.
 
-Live site:
+Live site: https://music-gear-organizer.herokuapp.com/gear
 
 ## Technologies Used
 * Languages - HTML5, CSS3, Javascript
